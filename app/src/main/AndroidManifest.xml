@@ -10,13 +10,18 @@
             android:supportsRtl="true"
             android:theme="@style/Theme.Birdle">
         <activity
-                android:name="com.birdle.BirdleActivity"
+                android:name="com.birdle.MainActivity"
                 android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
+        </activity>
+        <activity
+                android:name="com.birdle.GameActivity"
+                android:parentActivityName="com.birdle.MainActivity"
+                android:exported="true">
         </activity>
     </application>
 

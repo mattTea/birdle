@@ -4,4 +4,5 @@
     <string name="droid_image_description">android icon</string>
     <string name="title">Welcome to Birdle</string>
     <string name="birdle_image">birdle image</string>
+    <string name="wordValue">_ _ _ _ _</string>
 </resources>
