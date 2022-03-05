@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Birdle</string>
+    <string name="welcome_text">Hi, welcome to Birdle!</string>
+    <string name="droid_image_description">android icon</string>
+    <string name="title">Welcome to Birdle</string>
+    <string name="birdle_image">birdle image</string>
+</resources>
