@@ -1,8 +1,8 @@
-package com.birdle
+package com.birdle.service
 
-import com.birdle.GuessResult.CORRECT
-import com.birdle.GuessResult.INCORRECT
-import com.birdle.GuessResult.PART_CORRECT
+import com.birdle.service.GuessResult.CORRECT
+import com.birdle.service.GuessResult.INCORRECT
+import com.birdle.service.GuessResult.PART_CORRECT
 
 fun checkLetter(
     guessLetter: Char,
@@ -10,7 +10,7 @@ fun checkLetter(
     answerWord: String
 ): GuessResult =
     when {
-        answerWord[guessPosition] == guessLetter-> CORRECT
+        answerWord[guessPosition].lowercase() == guessLetter.lowercase() -> CORRECT
         answerWord.contains(guessLetter) -> PART_CORRECT
         else -> INCORRECT
     }

@@ -1,10 +1,10 @@
-package com.birdle
+package com.birdle.service
 
 import assertk.assertThat
 import assertk.assertions.isEqualTo
-import com.birdle.GuessResult.CORRECT
-import com.birdle.GuessResult.INCORRECT
-import com.birdle.GuessResult.PART_CORRECT
+import com.birdle.service.GuessResult.CORRECT
+import com.birdle.service.GuessResult.INCORRECT
+import com.birdle.service.GuessResult.PART_CORRECT
 import org.junit.jupiter.api.Test
 
 internal class LetterCheckerKtTest {

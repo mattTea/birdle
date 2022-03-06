@@ -1,4 +1,4 @@
-package com.birdle
+package com.birdle.service
 
 import assertk.assertThat
 import assertk.assertions.contains

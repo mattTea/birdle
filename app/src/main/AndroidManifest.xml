@@ -10,7 +10,7 @@
             android:supportsRtl="true"
             android:theme="@style/Theme.Birdle">
         <activity
-                android:name="com.birdle.MainActivity"
+                android:name="com.birdle.activity.MainActivity"
                 android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -19,8 +19,8 @@
             </intent-filter>
         </activity>
         <activity
-                android:name="com.birdle.GameActivity"
-                android:parentActivityName="com.birdle.MainActivity"
+                android:name="com.birdle.activity.GameActivity"
+                android:parentActivityName="com.birdle.activity.MainActivity"
                 android:exported="true">
         </activity>
     </application>

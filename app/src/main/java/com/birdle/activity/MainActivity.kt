@@ -1,10 +1,11 @@
-package com.birdle
+package com.birdle.activity
 
 import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.birdle.R
 import com.birdle.R.layout.activity_main
 
 class MainActivity : AppCompatActivity() {
