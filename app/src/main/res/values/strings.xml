@@ -2,6 +2,6 @@
     <string name="app_name">Birdle</string>
     <string name="title">Welcome to Birdle</string>
     <string name="birdle_image">birdle image</string>
-    <string name="wordValue">_ _ _ _ _</string>
     <string name="guessText"></string>
+    <string name="resultValue"></string>
 </resources>

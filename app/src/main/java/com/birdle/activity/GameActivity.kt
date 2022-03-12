@@ -12,6 +12,7 @@ import com.birdle.service.GuessResult.CORRECT
 import com.birdle.service.GuessResult.INCORRECT
 import com.birdle.service.GuessResult.PART_CORRECT
 import com.birdle.service.checkLetter
+import com.birdle.service.validateGuess
 
 class GameActivity : AppCompatActivity() {
     private var word: TextView? = null
@@ -19,7 +20,7 @@ class GameActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_game)
-        word = findViewById(R.id.wordText)
+        word = findViewById(R.id.resultText)
 
         val birdName = generateBirdle(birdNames)
 
@@ -39,6 +40,11 @@ class GameActivity : AppCompatActivity() {
 
         println("GUESSWORD -> $guessWord")
         println("BIRDNAME -> $birdName")
+
+        if (!validateGuess(guessWord)) {
+            word!!.text = String.format("Try again")
+            return
+        }
 
         val letterResults = guessWord
             .mapIndexed { index, letter -> checkLetter(letter, index, birdName) }
