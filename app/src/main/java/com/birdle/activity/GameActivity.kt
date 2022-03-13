@@ -23,26 +23,30 @@ class GameActivity : AppCompatActivity() {
         word = findViewById(R.id.resultText)
 
         val birdName = generateBirdle(birdNames)
+        val attemptViews = listOf<EditText>(
+            findViewById(R.id.guessText1),
+            findViewById(R.id.guessText2),
+            findViewById(R.id.guessText3)
+        )
+
+        val editTextPositionMap = attemptViews.mapIndexed { index, editText ->  Pair(editText, index) }.toMap()
 
         val guessButton = findViewById<Button>(R.id.guessButton)
-        guessButton.setOnClickListener { enterGuess(birdName) }
+        guessButton.setOnClickListener {
+            enterGuess(birdName, attemptViews, editTextPositionMap[currentFocus]!!)
+        }
+
+        findViewById<EditText>(R.id.guessText1).requestFocus()
     }
 
-    private fun enterGuess(birdName: String) {
-        val guessLetter1 = findViewById<EditText>(R.id.guessText1).text.toString()
-        val guessLetter2 = findViewById<EditText>(R.id.guessText2).text.toString()
-        val guessLetter3 = findViewById<EditText>(R.id.guessText3).text.toString()
-        val guessLetter4 = findViewById<EditText>(R.id.guessText4).text.toString()
-        val guessLetter5 = findViewById<EditText>(R.id.guessText5).text.toString()
-
-        val guessWord = listOf(guessLetter1, guessLetter2, guessLetter3, guessLetter4, guessLetter5)
-            .joinToString("")
+    private fun enterGuess(birdName: String, attemptViews: List<EditText>, attempt: Int) {
+        val guessWord = attemptViews[attempt].text.toString()
 
         println("GUESSWORD -> $guessWord")
         println("BIRDNAME -> $birdName")
 
         if (!validateGuess(guessWord)) {
-            word!!.text = String.format("Try again")
+            word!!.text = String.format("Bird not in list")
             return
         }
 
@@ -55,8 +59,12 @@ class GameActivity : AppCompatActivity() {
                     INCORRECT -> 'R'
                 }
             }
-            .joinToString()
+            .joinToString(" | ")
 
         word!!.text = String.format(letterResults)
+
+        if (attempt < attemptViews.indices.last) attemptViews[attempt+1].requestFocus()
+        else word!!.text = String.format("Bad luck!")
+        println("current focus after guess $attempt: $currentFocus")
     }
 }
