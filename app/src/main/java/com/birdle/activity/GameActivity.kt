@@ -26,7 +26,10 @@ class GameActivity : AppCompatActivity() {
         val attemptViews = listOf<EditText>(
             findViewById(R.id.guessText1),
             findViewById(R.id.guessText2),
-            findViewById(R.id.guessText3)
+            findViewById(R.id.guessText3),
+            findViewById(R.id.guessText4),
+            findViewById(R.id.guessText5),
+            findViewById(R.id.guessText6),
         )
 
         val editTextPositionMap = attemptViews.mapIndexed { index, editText ->  Pair(editText, index) }.toMap()
@@ -63,8 +66,14 @@ class GameActivity : AppCompatActivity() {
 
         word!!.text = String.format(letterResults)
 
-        if (attempt < attemptViews.indices.last) attemptViews[attempt+1].requestFocus()
-        else word!!.text = String.format("Bad luck!")
-        println("current focus after guess $attempt: $currentFocus")
+        if (attempt < attemptViews.indices.last) {
+            attemptViews[attempt + 1].requestFocus()
+        } else {
+            if (letterResults == "G | G | G | G | G") {
+                word!!.text = String.format("Well done!")
+            } else {
+                word!!.text = String.format("Bad luck!")
+            }
+        }
     }
 }

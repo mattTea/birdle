@@ -57,6 +57,8 @@ internal class LetterCheckerKtTest {
     Other rules to be tested...
     - Functional test the activity steps... somehow
 
+    - Make sure guess is 5 letters
+
     - Check word is in list of words DONE
     - Behaviour around multiple use of a single letter
       - If you’ve input two of the same letter and one of them is greyed out, this indicates that only one of that letter appears in the final word
